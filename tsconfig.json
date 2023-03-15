@@ -1,0 +1,37 @@
+{
+  "extends": "@tsconfig/node18/tsconfig.json",
+  "compilerOptions": {
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "declaration": true,
+    "noEmitOnError": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "pretty": true,
+    "sourceMap": true,
+    "outDir": "build",
+    "typeRoots": ["./node_modules/@types", "./src/@types"],
+    "incremental": true,
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "@libs/*": ["src/libs/*"],
+      "@config/*": ["src/config/*"],
+      "@config": ["src/config/config"],
+      "@customTypes/*": ["src/@types/*"],
+      "@controllers/*": ["src/controllers/*"],
+      "@repository/*": ["src/repository/*"],
+      "@routes/*": ["src/routes/*"],
+      "@routes": ["src/routes/index"],
+      "@server/*": ["src/server/*"],
+      "@use-cases/*": ["src/use-cases/*"]
+    },
+  },
+  "exclude": ["node_modules"],
+  "include": ["src/**/*.ts", "test/**/*.ts"],
+  "ts-node": {
+    "transpileOnly": true,
+    "files": true,
+    "require": ["tsconfig-paths/register"]
+  }
+}
